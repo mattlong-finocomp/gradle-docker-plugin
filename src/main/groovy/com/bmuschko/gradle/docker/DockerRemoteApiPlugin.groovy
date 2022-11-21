@@ -62,7 +62,7 @@ class DockerRemoteApiPlugin implements Plugin<Project> {
         project.tasks.withType(AbstractDockerRemoteApiTask).configureEach(new Action<AbstractDockerRemoteApiTask>() {
             @Override
             void execute(AbstractDockerRemoteApiTask task) {
-                task.dockerClientService.set(serviceProvider)
+                task.dockerClientService.set(serviceProvider.get())
             }
         })
     }
